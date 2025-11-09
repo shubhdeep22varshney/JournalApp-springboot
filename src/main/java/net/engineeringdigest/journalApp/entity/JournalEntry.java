@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.Date;
 
 @Document(collection="journal_entries")
@@ -13,15 +13,15 @@ public class JournalEntry {
     private ObjectId id;
     private String title;
     private String content;
-    private LocalDateTime date;
+    private Date date;
 
     public JournalEntry() {
     }
-    public LocalDateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
