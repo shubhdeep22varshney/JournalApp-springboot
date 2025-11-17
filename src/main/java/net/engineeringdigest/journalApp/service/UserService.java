@@ -17,11 +17,15 @@ public class UserService {
     private UserRepository UserRepository;
     private static final PasswordEncoder passwordEncoder =new BCryptPasswordEncoder();
 
-    public void saveNewUser(User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(Arrays.asList("USER"));
+    public boolean saveNewUser(User user){
+        try{
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setRoles(Arrays.asList("USER"));
             UserRepository.save(user);
-
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
     public void saveadmin(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
